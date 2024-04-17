@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Colrolib Templates">
+    <meta name="author" content="Colrolib">
+    <title>Manual Daily Search</title>
+
+    <!-- Font CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 80%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .message-box {
+            text-align: center;
+        }
+
+        .message-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .btn-submit {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <div class="card-body">
+                <!-- Daily Search Form -->
+                <form id="DailySearchForm" action="{% url 'dayli_search' %}" method="post" class="message-box">
+                    <h2 class="message-title">Daily Search Form</h2>
+                    {% csrf_token %}
+                    <button class="btn-submit" type="button" onclick="startDailySearch()">START</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function startDailySearch() {
+            document.getElementById("DailySearchForm").submit();
+            // Optionally, you can add code here to display a message or loading spinner while the daily search is in progress.
+        }
+    </script>
+</body>
+
+</html>
